@@ -4,4 +4,3 @@ declare const CodeBlock: ({ language, code }: {
     code: any;
 }) => React.JSX.Element;
 export default CodeBlock;
-//# sourceMappingURL=code-block.d.ts.map
