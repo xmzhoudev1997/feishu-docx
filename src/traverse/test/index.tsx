@@ -6,7 +6,7 @@ import traverse from '..';
 export default () => {
   const traverseTree = async (data: any[], map: Record<string, boolean>) => {
     for (const d of data) {
-      console.log(d.title);
+      // console.log(d.title);
       await traverse(d.contents, {
         TextRun: ({ data, skip, stop }) => {
           map[data.content] = true;
@@ -23,7 +23,7 @@ export default () => {
             strArr.push(strs.join(','))
           }
           map[strArr.join('\n')] = true;
-          console.log(strArr.join('\n'));
+          // console.log(strArr.join('\n'));
           skip();
         },
       });
@@ -36,7 +36,7 @@ export default () => {
     (async () => {
       const map: Record<string, boolean> = {};
       await traverseTree(testData as any[], map);
-      console.log(map);
+      // console.log(map);
     })();
   }, [])
   return (
