@@ -22,7 +22,7 @@ export default memo((({
         'feishudocx-tipblock',
       )}
     >
-      <div className="feishudocx-tipblock-title">{data?.text?.elements?.[0]?.text_run?.content}</div>
+      <div className={`feishudocx-tipblock-title ${!data?.childrenNodes?.length ? 'feishudocx-tipblock-title-only' : ''}`}>{data?.text?.elements?.[0]?.text_run?.content}</div>
       {data?.childrenNodes?.map(d => renderSwitch(d, render, onLink))}
     </div>
   ) : null;
