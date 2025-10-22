@@ -102,7 +102,7 @@ export const formatTree = (data: Block[]): Block[] => {
   data?.forEach((d, index) => {
     map[d.block_id] = d;
     if (d.block_type === 2) {
-      const content = d.text?.elements?.[0].text_run?.content;
+      const content = d.text?.elements?.map(d => d.text_run?.content)?.join('');
       if (content?.startsWith('::: tip')) {
         parentIndexArr.push(index);
         (d as any).text.elements[0].text_run.content = content.split('tip')[1].trim();

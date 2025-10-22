@@ -20,8 +20,14 @@ export default memo((({
         'feishudocx-textelement',
       )}
     >
-      <TextRun data={data?.text_run} render={render} onLink={onLink}/>
-      <Latex data={data?.equation} render={render} onLink={onLink}/>
+      {
+        !!data?.text_run &&
+        <TextRun data={data?.text_run} render={render} onLink={onLink} />
+      }
+      {
+        !!data?.equation &&
+        <Latex data={data?.equation} render={render} onLink={onLink} />
+      }
     </span>
   ) : null;
   return render ? render('TextElement', data, tsx) || null : tsx;
