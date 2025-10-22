@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import TextElement from '../text-element';
 import { formatInlinecode, getTextStyle } from '../utils';
 import './index.less';
+import { renderSwitch } from '../..';
 
 type Props = {
   data?: Text;
@@ -14,10 +15,10 @@ type Props = {
 export default memo((({
   data, render, onLink,
 }) => {
-  
+
   const elements = data?.text?.elements || [];
   formatInlinecode(elements);
-  const tsx = data ? (
+  let tsx = data ? (
     <div
       key={data.block_id}
       id={data.block_id}
@@ -31,5 +32,9 @@ export default memo((({
       }
     </div>
   ) : null;
+  tsx = <>
+    {tsx}
+    {data?.childrenNodes?.map(d => renderSwitch(d, render, onLink))}
+  </>
   return render ? render('Text', data, tsx) || null : tsx;
 }) as FC<Props>)

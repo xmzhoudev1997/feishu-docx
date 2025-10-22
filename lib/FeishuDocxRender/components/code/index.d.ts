@@ -9,4 +9,3 @@ type Props = {
 export declare const CODE_TYPE: string[];
 declare const _default: React.NamedExoticComponent<Props>;
 export default _default;
-//# sourceMappingURL=index.d.ts.map
